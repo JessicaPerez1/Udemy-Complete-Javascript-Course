@@ -237,4 +237,17 @@ if (restaurant.orderPizza) {
 }
 // can write if statement this way
 restaurant.orderPizza && restaurant.orderPizza("mushroom", "Spinach");
-console.log(ord);
+
+// THE NULLISH COALLESCING OPERATOR (??)===============
+// TO USE WHEN A VALUE IS EQUAL TO 0
+restaurant.numGuest = 0;
+const guest = restaurant.numGuest || 10;
+console.log(guest); // returns 10 because numGuests is 0 which is a falsy value
+
+// the below fixes the issue of having a value equal to 0
+// nullish values are null and undefined
+//this means ONLY if the 1 st value is null or undefined, then the 2nd value would log
+// in the example below, the 1st value is falsy becasuse it's 0 (not NULL or UNDEFINED)
+// which means this will log the 1st value
+const guestCorrect = restaurant.numGuest ?? 10;
+console.log(guestCorrect);
